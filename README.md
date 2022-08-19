@@ -1,19 +1,18 @@
-TFT: A Case Study of Equinnax, Challenger Players, & Predictions
+# TFT: A Case Study of Equinnax, Challenger Players, & Predictions
+======
 
-Introduction:
+Over the past 2 months of summer break, I’ve been playing a game called Teamfight Tactics, otherwise known as TFT. TFT is an autochess battler where you build the best team you can with select units from the set and try to knock your opponents out of hit points to become the final person left standing. There is a lot of nuance and a high learning curve when trying to get into the game, so I have created a brief overview of how the game is supposed to be played and important tidbits that you should know before reading the case study.
 
-Over the past 2 months of summer break, I’ve been playing a game called Teamfight Tactics, otherwise known as TFT. TFT is an autochess battler where you build the best team you can with select units from the set and try to knock your opponents out of hit points to become the final person left standing. There is a lot of nuance and a high learning curve when trying to get into the game, so I’ll create a brief overview of how the game is supposed to be played and important tidbits that you should know before reading the case study.
-
-The objective of the game is to buy different units from a shop that refreshes every round, place them on your own board to create an unique team composition, and battle other opponents that are doing the same!
-There are 7 opponents that you must beat in order to get first place. If you get top 4, it is considered a win!
-You can spend two gold to refresh your shop! This can be done infinitely per round as long as you have enough gold to refresh it.
-Buying three of the same base unit will combine and upgrade the unit to a single 2-star unit, and having three 2-stars of the same unit will combine and upgrade it to a single 3-star unit!
-There are different tiers of units with increasing power levels, with 1-costs costing 1 gold, 2-costs costing 2 gold, 3-costs costing 3 gold, 4-costs costing 4 gold, and legendaries costing 5 gold. Within this set, there is an added mechanic called “dragons”. Some dragons are considered 4-cost but cost 8 gold, while others are considered legendaries but cost 10 gold. Dragons take up 2 spots on the field but are very strong.
-Each unit has different traits, when you field a certain amount of units with the same trait, the units that hold that trait get a certain buff. For example, when fielding two “Shapeshifters”, both the shapeshifters will gain extra hit points when they transform! Click here to see all traits and their effects!
-When you lose combat against an opponent, hit points will be subtracted from your hit point total. When you win combat against an opponent, hit points will be subtracted from their hit point total. Everyone starts out with 100 hit points.
-For the 2nd, 3rd, and 4th stages which consist of 6 rounds each, you will get an augment on each the first round of each stage. Three random augments are given to you to pick from. Each augment will give your team a certain perk or upside! Click here to see all augments and their effects!
-Each unit is able to hold three items. Each item is created through either augments or combining two item components.
-A leveling system is in play which allows you to go from level 1 to level 9. When you go up one level, you are able to field an additional unit. The higher level you are, the higher the odds of finding higher cost units.
+- The objective of the game is to buy different units from a shop that refreshes every round, place them on your own board to create an unique team composition, and battle other opponents that are doing the same!
+- There are 7 opponents that you must beat in order to get first place. If you get top 4, it is considered a win!
+- You can spend two gold to refresh your shop! This can be done infinitely per round as long as you have enough gold to refresh it.
+- Buying three of the same base unit will combine and upgrade the unit to a single 2-star unit, and having three 2-stars of the same unit will combine and upgrade it to a single 3-star unit!
+- There are different tiers of units with increasing power levels, with 1-costs costing 1 gold, 2-costs costing 2 gold, 3-costs costing 3 gold, 4-costs costing 4 gold, and legendaries costing 5 gold. Within this set, there is an added mechanic called “dragons”. Some dragons are considered 4-cost but cost 8 gold, while others are considered legendaries but cost 10 gold. Dragons take up 2 spots on the field but are very strong.
+- Each unit has different traits, when you field a certain amount of units with the same trait, the units that hold that trait get a certain buff. For example, when fielding two “Shapeshifters”, both the shapeshifters will gain extra hit points when they transform! Click here to see all traits and their effects!
+- When you lose combat against an opponent, hit points will be subtracted from your hit point total. When you win combat against an opponent, hit points will be subtracted from their hit point total. Everyone starts out with 100 hit points.
+- For the 2nd, 3rd, and 4th stages which consist of 6 rounds each, you will get an augment on each the first round of each stage. Three random augments are given to you to pick from. Each augment will give your team a certain perk or upside! Click here to see all augments and their effects!
+- Each unit is able to hold three items. Each item is created through either augments or combining two item components.
+- A leveling system is in play which allows you to go from level 1 to level 9. When you go up one level, you are able to field an additional unit. The higher level you are, the higher the odds of finding higher cost units.
 
 This concludes a brief overview of TFT as a game, but there are many more parts to the game that I haven’t covered such as different playstyles, different team compositions, and different tempo swings. This depth of gameplay makes the game very enjoyable and fun to play!
 
@@ -21,11 +20,11 @@ Within this case study, I’ll first be analyzing my own gameplay data. I’ll b
 
 Second, I’ll be analyzing the gameplay data of the rank 1 North American player. This player is the best of the best, giving a much more accurate depiction of what traits and augments are the best to pick and use compared to my own gameplay. 
 
-Personal Account (Equinnax) Analysis:
+## Personal Account (Equinnax) Analysis:
+======
+### Data Collection:
 
-Data Collection:
-
-To collect the data for my own account, I utilized Riot Games’s API to query the necessary information needed to conduct my analysis. This dataset had a total of 200 games of TFT that I played on my own account during set 7, standard and hyper roll modes included. Here is a sample of the raw dataset that I queried.
+To collect the data for my own gameplay data, I utilized Riot Games’s API to query the necessary information needed to conduct my analysis. This dataset had a total of 200 games of TFT that I played on my own account during set 7, standard and hyper roll modes included. Here is a sample of the raw dataset that I queried.
 
 *Example of raw dataset*
 
@@ -33,31 +32,31 @@ There are a total of 200 rows and 17 columns in the dataset, making up all the d
 
 *Dataset Column Descriptions*
 
-Data Formatting & Cleaning:
+### Data Formatting & Cleaning:
 
-To start formatting and cleaning the dataset, the size of the dataset, the datatypes in each column, and if there were any NULL values in the entire dataset was printed out through the use of the “info” function. After confirming there were no NULL values, consistent data types in each row, and matching lengths in each column, I was able to begin transforming and cleaning the data to make it easier to digest.
+1. Verifying Validity of the Dataset - To start formatting and cleaning the dataset, the size of the dataset, the datatypes in each column, and if there were any NULL values in the entire dataset was printed out through the use of the “info” function. After confirming there were no NULL values, consistent data types in each row, and matching lengths in each column, I was able to begin transforming and cleaning the data to make it easier to digest.
 
-First, the “Game Length” and “Time Eliminated” columns were transformed from seconds to minutes for easier digestion. This allowed me to quickly understand the timeframe at which the games were played and how long it took for me to get knocked out or win. 
+2. Time Transformation - The “Game Length” and “Time Eliminated” columns were transformed from seconds to minutes for easier digestion. This allowed me to quickly understand the timeframe at which the games were played and how long it took for me to get knocked out or win. 
 
-Second, the “TFT Set Number” column was filtered to show only the games played in Set 7. This is important as previous sets, such as set 6 and 6.5, have different mechanics and different champs. Including those sets in my dataframe would lead to an inconsistency in gameplay and data collection for following columns.
+3. Filtering unneeded data - The “TFT Set Number” column was filtered to show only the games played in Set 7. This is important as previous sets, such as set 6 and 6.5, have different mechanics and different champs. Including those sets in my dataframe would lead to an inconsistency in gameplay and data collection for following columns.
 
-Third, the “Augments” column was filtered out through the use of regular expressions, extracting only the augment names. New columns were created for each augment type (first, second, or third augment) and the extracted values were placed in their respective columns. This increased the readability of the table as the previous augment column had lists in each cell, containing all three augments in a list as well as unnecessary information.
+4. Filtering through regular expressions (Augment columns) - the “Augments” column was filtered out through the use of regular expressions, extracting only the augment names. New columns were created for each augment type (first, second, or third augment) and the extracted values were placed in their respective columns. This increased the readability of the table as the previous augment column had lists in each cell, containing all three augments in a list as well as unnecessary information.
 
-Fourth, the “Traits” column was cleaned out through the use of regular expressions, extracting only the traits used in each unique game. Similar to the “Augments” column, unnecessary information was removed, leaving a list of traits that I had active on my board in each cell.
+5. Filtering through regular expressions (Trait column) - The “Traits” column was cleaned out through the use of regular expressions, extracting only the traits used in each unique game. Similar to the “Augments” column, unnecessary information was removed, leaving a list of traits that I had active on my board in each cell.
 
-Fifth, the “Units” column was cleaned in the same pattern as the “Traits” column, extracting the name of the units placed on the board in each game. Information unnecessary to my analysis was removed, leaving a list of unit names in each cell.
+6. Filtering through regular expressions (Unit column) - The “Units” column was cleaned in the same pattern as the “Traits” column, extracting the name of the units placed on the board in each game. Information unnecessary to my analysis was removed, leaving a list of unit names in each cell.
 
-Sixth, several units within the “Units” column had placeholder names, such as “DragonGreen” and “DragonPurple”. I replaced all of these placeholder names with the unit’s actual names to ensure that the naming conventions would be made consistent across the “Units” column.
+7. Creating consistent naming conventions - Several units within the “Units” column had placeholder names, such as “DragonGreen” and “DragonPurple”. I replaced all of these placeholder names with the unit’s actual names to ensure that the naming conventions would be made consistent across the “Units” column.
 
-Seventh, I dropped all rows that had “Turbo” as its TFT Game Type. Because Turbo is a much faster and fundamentally different game than standard TFT, using its statistics to analyze my standard TFT gameplay would throw off any analysis results in future steps.
+8. Filtering unneeded data - I dropped all rows that had “Turbo” as its TFT Game Type. Because Turbo is a much faster and fundamentally different game than standard TFT, using its statistics to analyze my standard TFT gameplay would throw off any analysis results in future steps.
 
-Finally, I dropped all columns that I did not need for my analysis. The columns “Gold Left”, “Last Round”, “Level”, “Companion Skin ID”, “Companion Species”, “PUUID”, and “Companion Content ID” were dropped from the table. This was done to increase clarity and simplify the amount of information on the table.
+9. Simplifying dataset through dropping unneeded columns - I dropped all columns that I did not need for my analysis. The columns “Gold Left”, “Last Round”, “Level”, “Companion Skin ID”, “Companion Species”, “PUUID”, and “Companion Content ID” were dropped from the table. This was done to increase clarity and simplify the amount of information on the table.
 
 After completing all of the cleaning and formatting, our dataset has a total of 13 columns and 197 rows.
 
 *Example of cleaned Dataset*
 
-Primary Statistics:
+### Primary Statistics:
 
 Over set 7, a total of 197 standard TFT games were played. These games were played from gold to diamond elo, with most games hovering around low to high plat ranking. Over my 197 games played, the distribution of placements was slightly skewed right, indicating that more top 4 finishes were acquired than bottom 4 finishes. With the most common placement being 2nd place in 32 games, followed by 4th place in 31 games, 3rd place in 27 games, and 5th place in 25 games, my gradual climb from gold to diamond can be seen within the data. However, when looking at the first and eighth place counts, I received eighth place 23 times while only getting first place 20 times.
 
@@ -75,7 +74,7 @@ In addition to a unique combination of traits, a unique combination of three aug
 
 *All augments countplot*
 
-Data Dealt Analysis:
+### Data Dealt Analysis:
 
 “In the case of my gameplay, does dealing more damage to other players correlate to a higher placement?”
 
@@ -94,7 +93,7 @@ Looking at the scatterplot, there is a clear negative trend between placement an
 Conclusion:
 Dealing more damage to other players has a strong negative correlation with placement value, telling me that as damage dealt increases, my placement value will decrease. 
 
-Trait Analysis:
+### Trait Analysis:
 
 To guide my analysis of the traits that I used in my gameplay, these questions were formulated. Because I used my own data, the results that this analysis provides can only be applied to my own gameplay and cannot be extrapolated to other players.
 
@@ -176,8 +175,6 @@ In addition to the combination of traits that was used, three different augments
 
 Comparison of Primary Stats:
 
-*Insert Comparison of Trait Usage Distribution Table*
-
 His top three most used traits were also the top three traits used in my own gameplay. These traits are easy to implement on the board or are one of the main attractions of set 7, leading to an increase in usage. However, the next two traits were different. In the k3 c9soju’s games, the traits Tempest and Bard were used and in my own games, the traits Jade and Shapeshifter were used. The Tempest and Bard traits are much more utility and late-game oriented than Jade and Shapeshifter, which leads to a much stronger late-game board. 
 
 The largest difference between the augments chosen is that k3soju frequently picks “combat” augments that can be used throughout the entire game, rather than augments that give your team an immediate burst of strength and aren’t as useful in later stages. Weakspot, Celestial Blessing 2, and Second Wind 2 all buff your team or debuff enemy teams by a percentage rather than a flat amount, making it strong throughout the entire game.
@@ -209,11 +206,9 @@ Traits that were activated by legendary units such as Bard, SpellThief, and Star
 
 Comparison of Traits:
 
-*insert comparison of legendary trait stats table*
-
 When looking at the top three trait combinations of k3 c9soju, traits activated by legendary units were in all of the combinations. My combinations only had a single legendary activated trait, “Bard”, in the third combination. The average placements of k3 c9soju’s combinations were all below 2.00, whereas the top three trait combinations of my data had a minimum average placement of 3.00. k3 c9soju’s data clearly shows that the traits activated by legendary units will give a higher placement when used in a team composition, but my data does not. We’ll look deeper into each of these traits (Bard, Starcaller, SpellThief) to find out why.
 
-When comparing the data, traits such as Bard, Starcaller, and SpellThief had a sizable difference in stats. My Bard’s average placement had a 3.74 compared to his 3.21, my Starcaller’s average placement had a 4.00 average placement compared to his 3.05, and my SpellThief’s average placement had a 5.50 compared to his 3.13. k3 c9soju’s win percentage for these traits were high while mine were quite low, but his top 4 percentages for Bard and Starcaller when compared to mine were relatively similar. SpellThief was quite different, but it was an outlier trait when compared to the rest of my traits. This indicates a discrepancy within my gameplay between getting a top four position and winning when using those traits.
+When comparing the data, traits such as Bard, Starcaller, and SpellThief had a sizable difference in stats. My Bard’s average placement had a 3.74 compared to his 3.21, my Starcaller’s average placement had a 4.00 average placement compared to his 3.05, and my SpellThief’s average placement had a 5.50 compared to his 3.13. k3 c9soju’s win percentage for these traits were high while mine were quite low, but his top 4 percentages for Bard and Starcaller when compared to mine were quite similar. This indicates a discrepancy within my gameplay between getting a top four position and winning when using those traits.
 
 This discrepancy can be attributed to a weak late game. Typically, these traits are activated in the mid to late game when there are around four to five players left. Maintaining a stronger late game increases the speed at which you can find one of these legendary units, upgrade them, and activate the trait. If your late game isn’t as strong, it’ll be tougher to find these units and you’ll be quickly knocked out by other opponents that find the units and activate the trait faster than you. 
 
@@ -246,6 +241,6 @@ Future Steps:
 
 There are many different things that can be done to further expand on this Case Study in the future, mainly increasing the amount of data in order to get more holistic results and exploring different relationships between aspects of the game. Utilizing the Riot API to extract data was quite successful, albeit quite slow. Finding workarounds to call data faster would allow me to compare my games to the top 300 players in the NA servers instead of just the top player.
 
-Furthermore, expanding on the trait-augment relationship would also be interesting, allowing us to find out which augments are the most optimal for specific team compositions. 
+Furthermore, expanding on the trait-augment and unit-augment relationship would also be interesting, allowing us to find out which combinations are the most optimal for specific team compositions. 
 
-Looking forward, I plan to try and hit the master tier with all the insights that I gleaned from this case study. Analyzing my own gameplay and comparing it to the top player allowed me to really understand what I needed to fix and correct.
+Looking forward, I plan to try and hit the master tier with all the insights that I gleaned from this case study. Analyzing my own gameplay and comparing it to the top player allowed me to really understand what I needed to fix and correct. 
