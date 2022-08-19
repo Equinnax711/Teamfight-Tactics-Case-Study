@@ -1,4 +1,4 @@
-#TFT: A Case Study of Equinnax, Challenger Players, & Predictions
+TFT: A Case Study of Equinnax, Challenger Players, & Predictions
 
 Introduction:
 
