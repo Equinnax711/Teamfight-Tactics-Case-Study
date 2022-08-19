@@ -22,7 +22,7 @@ Second, I’ll be analyzing the gameplay data of the rank 1 North American playe
 ## Personal Account (Equinnax) Analysis:
 ### Data Collection:
 
-To collect the data for my own gameplay data, I utilized Riot Games’s API to query the necessary information needed to conduct my analysis. This dataset had a total of 200 games of TFT that I played on my own account during set 7, standard and hyper roll modes included. Here is a sample of the raw dataset that I queried.
+To collect the data for my own gameplay data, I utilized Riot Games’s API to query the necessary information needed to conduct my analysis. This dataset had a total of 200 games of TFT that I played on my own account during set 7, standard and hyper roll modes included. Here is a sample of the raw dataset that I queried. Click on the picture to get a closer look!
 
 ![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f71fdcdaf1d783761bbd521adc7441b7e5ad4cf0/Data%20Visualizations/Raw%20Personal%20Dataset.jpg)
 
@@ -52,25 +52,25 @@ There are a total of 200 rows and 17 columns in the dataset, making up all the d
 
 After completing all of the cleaning and formatting, our dataset has a total of 13 columns and 197 rows.
 
-*Example of cleaned Dataset*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Cleaned%20Personal%20Dataset.jpg)
 
 ### Primary Statistics:
 
 Over set 7, a total of 197 standard TFT games were played. These games were played from gold to diamond elo, with most games hovering around low to high plat ranking. Over my 197 games played, the distribution of placements was slightly skewed right, indicating that more top 4 finishes were acquired than bottom 4 finishes. With the most common placement being 2nd place in 32 games, followed by 4th place in 31 games, 3rd place in 27 games, and 5th place in 25 games, my gradual climb from gold to diamond can be seen within the data. However, when looking at the first and eighth place counts, I received eighth place 23 times while only getting first place 20 times.
 
-*Placement Countplot*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Personal%20Placement%20Countplot.jpg)
 
 Within those 197 games, a unique combination of traits were used to buff my team composition each game. Below is a countplot of the traits that I’ve used over set 7. Unsurprisingly, the most frequent trait used within my team comp, used in 119 of my games, was Dragon. As the Dragon trait was one of the main focal points and attractions of this set, it made sense that it was used in many of my games. Different traits such as Guild, used in 112 of my games, were easy to fit into my team composition due to its activation requirement of a single “guild” unit. On the other hand, there were several traits that were not often chosen by me due to their limited synergies with other traits. Traits such as Legend, which was only picked 7 times, forced you to place the same three units in your team composition, severely limiting the amount of flexibility that you were able to play with.
 
-*Traits Countplot*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Personal%20Traits%20Used%20Countplot.jpg)
 
-To help with visualizing which traits I’ve used the most, I’ve created a wordcloud of the above data. 
+To help better visualize which traits I’ve used the most, I’ve created a wordcloud of the above data. 
 
-*Traits Wordcloud*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Personal%20Traits%20Used%20WordCloud.jpg)
 
 In addition to a unique combination of traits, a unique combination of three augments are chosen per game. For the first augment, I chose Item Grab Bag (Level 1) the most, for the second augment, I chose Thrill of the Hunt (Level 1) the most, and for the third augment, I chose Portable Forge the most. In combination over all augments, Portable Forge was picked the most.
 
-*All augments countplot*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Personal%20Augments%20Picked%20Countplot.jpg)
 
 ### Data Dealt Analysis:
 
@@ -78,11 +78,11 @@ In addition to a unique combination of traits, a unique combination of three aug
 
 To answer this question, I decided to move forward with a simple linear regression with “damage dealt to other players” as the independent variable and “placement” as the response variable. A scatterplot with a line of best fit was created in order to visualize the data.
 
-*damage dealt scatterplot*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Damage%20Dealt%20Scatterplot.jpg)
 
 Before using this model, several assumptions had to be checked. To do so, a density histogram showing the distribution of residuals was created. Looking at the density histogram, we can see that the KDE of the residuals closely matches the orange normal KDE curve. This confirms we are able to use a linear regression with our data.
 
-*residual plot*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Damage%20Dealt%20Residual%20Plot.jpg)
 
 The line of best fit was calculated to have a slope of -0.034 and an intercept of 7.77. Interpreting the slope tells us that as damage dealt to other players increases by one, the placement value will decrease on average by 0.034. The intercept tells us that assuming we deal 0 damage to other players in a game, we’ll place at an average of 7.77.
 
@@ -98,15 +98,15 @@ To guide my analysis of the traits that I used in my gameplay, these questions w
 - Which traits should I be using to get a better placement?
 - Which combination of three traits works the best together?
 
-*Insert Trait Performance bar charts*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Personal%20Trait%20Statistics%20Barchart.jpg)
 
 The bar charts above show a clear depiction of my performance with different traits. Traits such as Spellthief, Legend, and Cavalier all have above average placements above the typical average placement of 4.5. These traits, as expected, have the lowest placements because of my unfamiliarity with the traits and the smaller amount of games that I used them in. However, several of the traits that I seldomly used such as Scalescorn, Astral, and Warrior had the lowest average placement as well as a higher top 4 and win percentage. All of the team compositions that use these traits are quite strong but harder to obtain at full power, explaining the higher success rate and low play rate. The complete table of trait statistics are shown below.
 
-*Insert trait stats table*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Personal%20Trait%20Statistics.jpg)
 
 One trait that surprised me was Dragonmancer. With an average placement slightly above the typical average placement of 4.5, a top 4 percentage of 0.48, and win percentage of 0.08, the trait did not perform well. Throughout the set I had perceived Dragonmancers as quite strong, but looking at the data again it seems as though it is on the weaker end.
 
-*insert combo trait stats table*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Personal%20Trait%20Combination%20Statistics.jpg)
 
 The table above was created by iterating through all unique combinations of three traits. Unique combinations of traits that I did not play in the 200 games in my dataset were dropped to ensure consistency. Trait combinations that had less than 15 games together were also dropped to guarantee the combination statistics wouldn’t be skewed as much by an outlier game due to the larger sample size.
 
@@ -124,13 +124,13 @@ To guide my analysis of the augments that I used in my gameplay, these questions
 
 - Which augments should I be using to get a better placement?
 
-*Insert Trait Performance bar charts*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Personal%20Augment%20Statistics%20Barchart.jpg)
 
 The bar charts above show a clear depiction of my performance with different augments. The augments True Twos, Hot Shot, Celestial Blessing 1, and Sunfire Board have the highest average placement out of all the augments, with average placements of around 3. All the aforementioned augments have significant early game impact and can give you an advantage within the first few rounds that leads into future wins. Sunfire Board not only had a high top 4 rate, but also had the highest win rate out of all the augments chosen. It provides value throughout the entire game by debuffing the enemy team by a percentage of their health. Augments that were taken frequently such as Component Grab Bag, Portable Forge, and Item Grab Bag 1 all had a decent average placement of around 3.5. These augments all provide items or item components when taken, also providing my units with an immediate boost in power. This data further enforces the idea that I typically end up with a higher placement when having a stronger early game and should look for these types of augments when playing in the future. The complete table of trait statistics are shown below.
 
-*Insert augment stats table*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Personal%20Augment%20Statistics.jpg)
 
-One thing I noticed is that True Twos, and Grand Gambler have a 100% top 4 rate while having a 0% win rate. This is most likely due to its strength in the early game, allowing me to keep healthy enough to maintain a top 4 placement. However, once the top four players are left in the late-game, these two augments cannot compete with other opponent’s augments that are much more effective. 
+One thing I noticed is that True Twos, and Grand Gambler have a 100% top 4 rate while having a 0% win rate. This is most likely due to its strength in the early game, allowing me to keep healthy enough to maintain a top 4 placement. However, once the top four players are left in the late-game, these two augments cannot compete with other opponent’s augments that are much more effective.  
 
 ## Challenger Comparative Dataset Analysis:
 
@@ -138,7 +138,7 @@ One thing I noticed is that True Twos, and Grand Gambler have a 100% top 4 rate 
 
 To collect the data for the challenger player dataset, I utilized Riot Games’s API to query the necessary information needed to conduct my analysis. This dataset had a total of 1000 games of TFT that the rank 1 player played during set 7, standard and hyper roll modes included. Here is a sample of the raw dataset that I queried.
 
-*Example of raw dataset*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Raw%20Rank%201%20Dataset.jpg)
 
 There are a total of 1000 rows and 17 columns in the dataset, making up all the data queried from the Riot API. Several of these columns will not be included in the final cleaned dataset.
 
@@ -150,27 +150,29 @@ The data formatting & cleaning completed for the challenger dataset analysis was
 
 After completing all of the cleaning and formatting, our challenger dataset has a total of 13 columns and 961 rows.
 
-*Example of cleaned Dataset*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Cleaned%20Rank%201%20Dataset.jpg)
 
 ### Primary Statistics:
 
 As of 8/10/2022, a total of 961 standard set 7 TFT games were played by “k3 c9soju”, the rank 1 player at the time. These games were played from diamond to challenger elo, with a large majority of games consisting of challenger level players and lobbies. Looking at the placement countplot for these 961 games, the distribution is greatly skewed towards the right, indicating that there were much more top four finishes than bottom four finishes. With the most common placement being 1st in 174 games, followed by 3rd in 145 games, 2nd in 142 games, and 4th in 122 games, the consistency in gameplay is clearly shown as the four highest placements are the four most frequent placements. These results were expected of the rank 1 player, as reaching rank 1 by itself requires a large number of top 4 finishes, in addition to the large number of the top 4 finishes needed to maintain the rank 1 status.
 
-* Challenger Placement Countplot*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Rank%201%20Placement%20Countplot.jpg)
 
 Within those 961 games, k3 c9soju utilized a combination of traits shown on the countplot below. The top three most utilized traits in his team compositions were guild, followed by dragon and bruiser. 
 
-*Challenger Traits Countplot*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Rank%201%20Traits%20Used%20Countplot.jpg)
 
 To help with visualizing which traits I’ve used the most, I’ve created a wordcloud of the above data. 
 
-*Challenger traits Wordcloud*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Rank%201%20Traits%20Used%20WordCloud.jpg)
 
 In addition to the combination of traits that was used, three different augments were chosen every game. For the first augment, k3 c9 soju chose Portable Forge the most, for the second augment, he chose Weakspot the most, and for the third augment, he chose Celestial Blessing 2 the most. Across all augments, Second Wind 2 was picked the most. 
 
-*Challenger all augments countplot*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Rank%201%20Augments%20Picked%20Countplot.png)
 
 #### Comparison of Primary Stats:
+
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Comparative%20Trait%20%20Usage%20Distribution%20Barchart.jpg)
 
 His top three most used traits were also the top three traits used in my own gameplay. These traits are easy to implement on the board or are one of the main attractions of set 7, leading to an increase in usage. However, the next two traits were different. In the k3 c9soju’s games, the traits Tempest and Bard were used and in my own games, the traits Jade and Shapeshifter were used. The Tempest and Bard traits are much more utility and late-game oriented than Jade and Shapeshifter, which leads to a much stronger late-game board. 
 
@@ -180,17 +182,15 @@ Looking to use traits and augments that scale better into the late game are the 
 
 ### Challenger Trait Analysis:
 
-*Insert Trait Performance bar charts*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Rank%201%20Trait%20Statistics%20Barchart.jpg)
 
 The bar charts above show a clear depiction of k3 c9soju’s performance with different traits. Nearly every trait had an average placement of below the typical average placement of 4.5. The only exception was the Legend trait, with an average placement of 5.20, a top 4 percentage of 0.4, and a win percentage of 0. These results are most likely due to the fact that Legend was played in a mere 5 out of 961 games that he played during set 7, with the 2nd least played trait being played in 75 games. This unfamilarity and inexperience with the trait combined with a small sample size explains the significantly higher placement results.
 
-On the other hand, traits such as Starcaller, SpellThief, and Bard had several of the lowest average placements, highest top 4 percentages, and highest win percentages. All the units attributed with these traits are legendary units with strong skills that can typically be found much later in the game. Once obtained, fielding these units and activating their traits gives your team a large boost in strength.
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Rank%201%20Trait%20Statistics.jpg)
 
-*Insert challenger trait stats table*
+On the other hand, traits such as Starcaller, SpellThief, and Bard had several of the lowest average placements, highest top 4 percentages, and highest win percentages. All the units attributed with these traits are legendary units with strong skills that can typically be found much later in the game. Once obtained, fielding these units and activating their traits gives your team a large boost in strength. See the table above for the stats for all traits.
 
-See the above table for the stats for all traits.
-
-*insert challenger combo trait stats table*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Rank%201%20Trait%20Combination%20Statistics.jpg)
 
 The table above was created by iterating through all unique combinations of three traits. Unique combinations of traits that k3 c9soju did not play in the 200 games in my dataset were dropped to ensure consistency. Trait combinations that had less than 25 games together were also dropped to guarantee the combination statistics wouldn’t be skewed as much by an outlier game due to the larger sample size.
 
@@ -205,6 +205,8 @@ Traits that were activated by legendary units such as Bard, SpellThief, and Star
 
 When looking at the top three trait combinations of k3 c9soju, traits activated by legendary units were in all of the combinations. My combinations only had a single legendary activated trait, “Bard”, in the third combination. The average placements of k3 c9soju’s combinations were all below 2.00, whereas the top three trait combinations of my data had a minimum average placement of 3.00. k3 c9soju’s data clearly shows that the traits activated by legendary units will give a higher placement when used in a team composition, but my data does not. We’ll look deeper into each of these traits (Bard, Starcaller, SpellThief) to find out why.
 
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Legendary%20Trait%20Comparative%20Barchart.jpg)
+
 When comparing the data, traits such as Bard, Starcaller, and SpellThief had a sizable difference in stats. My Bard’s average placement had a 3.74 compared to his 3.21, my Starcaller’s average placement had a 4.00 average placement compared to his 3.05, and my SpellThief’s average placement had a 5.50 compared to his 3.13. k3 c9soju’s win percentage for these traits were high while mine were quite low, but his top 4 percentages for Bard and Starcaller when compared to mine were quite similar. This indicates a discrepancy within my gameplay between getting a top four position and winning when using those traits.
 
 This discrepancy can be attributed to a weak late game. Typically, these traits are activated in the mid to late game when there are around four to five players left. Maintaining a stronger late game increases the speed at which you can find one of these legendary units, upgrade them, and activate the trait. If your late game isn’t as strong, it’ll be tougher to find these units and you’ll be quickly knocked out by other opponents that find the units and activate the trait faster than you. 
@@ -213,11 +215,11 @@ Looking at the data, it tells me that I need to maintain a stronger late game in
 
 ### Challenger Augment Analysis:
 
-*Insert challenger Augment Performance bar charts*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Rank%201%20Augment%20Statistics%20Barchart.jpg)
 
 The bar charts above show a clear depiction of k3soju’s performance with different augments. Augments that had less than 20 games played were removed from the dataset in order to ensure that each augment had a large enough sample size and would not be skewed by an outlier. The augments with the highest average placement were Assasin Emblem, Makeshift Armor 2, Celestial Blessing 3, Gadget Expert, and Titanic Strength. Assassin Emblem and Makeshift Armor 2 are niche augments that fit very well into several team compositions in the right scenario, inflating their average placement, top 4, and win percentages. Celestial Blessing 3 provides percentage healing for the entire team, Gadget Expert increases damage dealt by direct damage items by 40%, and Titanic strength provides units with the Bruiser trait a percentage increase in attack damage based on health. These three augments deal with percentages, ensuring that they provide decent value in the early game while scaling well into the late game. The complete table of trait statistics are shown below.
 
-*Insert challenger augment stats table*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f123a802b072261719134adc442ac9a490377968/Data%20Visualizations/Rank%201%20Augment%20Statistics.jpg)
 
 One augment that surprised me was Second Wind 2, which I perceived as quite good, but only ended up with a respective 4.18 average placement. Looking at its standard deviation of 2.30 and its pick rate of 126 out of 961 games, the augment seems quite volatile, doing well in some games and not so great in others. Augments like these may require further analysis into which traits/team compositions they fit the best in.
 
