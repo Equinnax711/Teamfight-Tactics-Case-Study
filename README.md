@@ -7,9 +7,9 @@ Over the past 2 months of summer break, I’ve been playing a game called Teamfi
 - You can spend two gold to refresh your shop! This can be done infinitely per round as long as you have enough gold to refresh it.
 - Buying three of the same base unit will combine and upgrade the unit to a single 2-star unit, and having three 2-stars of the same unit will combine and upgrade it to a single 3-star unit!
 - There are different tiers of units with increasing power levels, with 1-costs costing 1 gold, 2-costs costing 2 gold, 3-costs costing 3 gold, 4-costs costing 4 gold, and legendaries costing 5 gold. Within this set, there is an added mechanic called “dragons”. Some dragons are considered 4-cost but cost 8 gold, while others are considered legendaries but cost 10 gold. Dragons take up 2 spots on the field but are very strong.
-- Each unit has different traits, when you field a certain amount of units with the same trait, the units that hold that trait get a certain buff. For example, when fielding two “Shapeshifters”, both the shapeshifters will gain extra hit points when they transform! Click here to see all traits and their effects!
+- Each unit has different traits, when you field a certain amount of units with the same trait, the units that hold that trait get a certain buff. For example, when fielding two “Shapeshifters”, both the shapeshifters will gain extra hit points when they transform! Click [here](https://lolchess.gg/synergies/set7) to see all traits and their effects!
 - When you lose combat against an opponent, hit points will be subtracted from your hit point total. When you win combat against an opponent, hit points will be subtracted from their hit point total. Everyone starts out with 100 hit points.
-- For the 2nd, 3rd, and 4th stages which consist of 6 rounds each, you will get an augment on each the first round of each stage. Three random augments are given to you to pick from. Each augment will give your team a certain perk or upside! Click here to see all augments and their effects!
+- For the 2nd, 3rd, and 4th stages which consist of 6 rounds each, you will get an augment on each the first round of each stage. Three random augments are given to you to pick from. Each augment will give your team a certain perk or upside! Click [here](https://lolchess.gg/guide/augments) to see all augments and their effects!
 - Each unit is able to hold three items. Each item is created through either augments or combining two item components.
 - A leveling system is in play which allows you to go from level 1 to level 9. When you go up one level, you are able to field an additional unit. The higher level you are, the higher the odds of finding higher cost units.
 
@@ -24,7 +24,7 @@ Second, I’ll be analyzing the gameplay data of the rank 1 North American playe
 
 To collect the data for my own gameplay data, I utilized Riot Games’s API to query the necessary information needed to conduct my analysis. This dataset had a total of 200 games of TFT that I played on my own account during set 7, standard and hyper roll modes included. Here is a sample of the raw dataset that I queried.
 
-*Example of raw dataset*
+![alt text](https://github.com/Equinnax711/Teamfight-Tactics-Case-Study/blob/f71fdcdaf1d783761bbd521adc7441b7e5ad4cf0/Data%20Visualizations/Raw%20Personal%20Dataset.jpg)
 
 There are a total of 200 rows and 17 columns in the dataset, making up all the data queried from the Riot API. Several of these columns will not be included in the final cleaned dataset.
 
