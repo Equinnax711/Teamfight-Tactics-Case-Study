@@ -88,8 +88,7 @@ The line of best fit was calculated to have a slope of -0.034 and an intercept o
 
 Looking at the scatterplot, there is a clear negative trend between placement and damage dealt to other players. This is further corroborated by calculating the correlation value of -0.838. Squaring this value provides us with a R-squared value of 0.702. As 70.2% of the variance in placement can be explained by the linear regression model created, we can confidently say that there is a strong correlation between the two variables. 
 
-Conclusion:
-Dealing more damage to other players has a strong negative correlation with placement value, telling me that as damage dealt increases, my placement value will decrease. 
+**Conclusion**: Dealing more damage to other players has a strong negative correlation with placement value, telling me that as damage dealt increases, my placement value will decrease. 
 
 ### Trait Analysis:
 
